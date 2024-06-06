@@ -41,3 +41,33 @@ if total_loss2 < total_loss1:
   better_fit = 2
 else:
   better_fit = 1
+
+
+
+
+# GRADIENT DESCENT
+# we find the sum of y_value - (m*x_value + b) for all the y_values and x_values we have
+# and then we multiply the sum by a factor of -2/N. N is the number of points we have.
+
+def get_gradient_at_b(x, y, m, b):
+  diff = 0
+  # N is the number of points
+  N = len(x)
+  for i in range(0, len(x)):
+    y_val = y[i]
+    x_val = x[i]
+    diff += (y_val - ((m * x_val) + b))
+  # Define b_gradient
+  b_gradient = -2/N * diff
+  return b_gradient
+
+# ALTERNATIVE
+# def get_gradient_at_b(x, y, m, b):
+#   diff = 0
+#   N = len(x)
+#   for x_val, y_val in zip(x, y):
+#     diff += y_val - (m*x_val +b)
+
+#   b_gradient = -2 / N * diff  
+
+#   return b_gradient
